@@ -11,9 +11,10 @@
 		"strict": true,
 		"moduleResolution": "bundler",
 		"paths": {
-			"$components/*": ["src/components/*"],
-+			"$stores/*": ["src/stores/*"],
-+			"$lib/*": ["src/lib/*"]
+			"$components/*": ["./src/components/*"],
+			"$stores/*": ["./src/stores/*"],
+			"$lib/*": ["./src/lib/*"],
+			"$utils/*": ["./src/utils/*"],
 		}
 	}
 	// Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias

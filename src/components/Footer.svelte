@@ -1,5 +1,5 @@
 <script></script>
 
-<header></header>
+<footer></footer>
 
 <style></style>
