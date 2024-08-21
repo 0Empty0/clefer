@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 
+	import { Plus } from 'lucide-svelte';
+
 	let gridWidth: number;
 	let gridHeight: number;
 
@@ -31,32 +33,35 @@
 </svelte:head>
 
 <div
-	class="grid"
+	class="grid-layer"
 	role="button"
 	tabindex="0"
 	style="
 		--grid-height: {gridHeight}px;
-		--grid-width: {gridWidth}px; 
+		--grid-width: {gridWidth}px;
 	"
-></div>
+>
+	{#if true}
+		<button
+			class="group rounded-lg bg-midblack p-1 transition-all hover:border hover:border-gray hover:border-opacity-75 hover:bg-opacity-75"
+		>
+			<Plus color="#fafafa" size="32" class="group-hover:opacity-75" />
+		</button>
+	{/if}
+</div>
 
-<style>
-	.grid {
-		--d: 2px;
+<style lang="postcss">
+	.grid-layer {
+		@apply absolute left-1/2 top-1/2 -z-10 m-4 grid -translate-x-1/2 -translate-y-1/2 place-items-center;
 
-		margin: 16px;
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		--d: 1px;
 		width: var(--grid-width, 100vw);
 		height: var(--grid-height, 100vh);
-		z-index: -1;
 		background: radial-gradient(
 				circle at var(--d) var(--d),
-				#000 calc(var(--d) - 1px),
-				#0000 var(--d)
+				theme(colors.white) calc(var(--d) - 1px),
+				theme(colors.black) var(--d)
 			)
-			calc(50% - 18px) calc(50% - 18px) / 32px 32px;
+			calc(50% - 1px) calc(50% - 1px) / 32px 32px;
 	}
 </style>
